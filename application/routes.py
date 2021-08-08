@@ -1,8 +1,4 @@
-import http.client
-from datetime import datetime
-from typing import List
-from flask_restplus import Namespace, Resource, fields
-from application.models import discount, watchmodel
+from application.models import  watchmodel
 from application.db import db
 from flask import abort,request,Blueprint
 import jsonify
@@ -13,21 +9,16 @@ api_namespace = Blueprint('api', __name__)
 
 @api_namespace.route('/checkout',methods = ['GET','POST'])
 def ordercheckout():
-    if request.method == 'GET':
-        '''
-        Retrieves all the watches
-        '''
-        #watches = watchmodel.objects().to_json()
-        #return watches
-
-    #if request.method == 'POST':
         '''
         write a query
+           1) Input paramater should be query argument or payload in json
+           2) frequency of watchid is calculated using counter
+           3) depending on on_offer basis the price is calculated by integrating discount price
         '''
         args = request.get_json()
-        repeated_frequency = dict(Counter(args['ids']))
-        watchids = list(repeated_frequency.keys())
-        num_items = list(repeated_frequency.values())
+        if not args: query_par = request.args.get('ids').split(',')
+        if args: query_par = args['ids']
+        repeated_frequency = dict(Counter(query_par))
         total_price = 0
         for watchid,quantity in repeated_frequency.items():
              query_watches = watchmodel.objects.get(watchid=watchid)
@@ -38,9 +29,6 @@ def ordercheckout():
              else:
                  total_price  += quantity * query_watches['price']
                                
-
-
-        #print (query_watches.to_json())
         result = {'total_price':total_price}
         
-        return result, http.client.CREATED
+        return result

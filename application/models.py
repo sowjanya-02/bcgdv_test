@@ -6,7 +6,7 @@ class discount(db.EmbeddedDocument):
     discount_maxquantity = db.FloatField()
 
 class watchmodel(db.Document):
-    watchid = db.IntField(unique=True)
+    watchid = db.StringField(unique=True)
     watchname = db.StringField(required=True)
     price = db.FloatField()
     on_offer = db.BooleanField()

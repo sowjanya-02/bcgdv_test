@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_restplus import Api
 
 
 def create_app():
@@ -9,12 +8,13 @@ def create_app():
     app = Flask(__name__)
     
     from application.db import initialize_db
+    ## configuration for the mongodb uri
     app.config['MONGODB_SETTINGS'] = {
       'host': 'mongodb://localhost:27017/watchmodel'
     }
+    # initializing db
     initialize_db(app)
 
-    #api.add_namespace(api_namespace)
     app.register_blueprint(api_namespace)
 
     return app
