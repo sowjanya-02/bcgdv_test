@@ -1,7 +1,6 @@
 from application.models import  watchmodel
 from application.db import db
 from flask import abort,request,Blueprint
-import jsonify
 from collections import Counter
 
 api_namespace = Blueprint('api', __name__)
