@@ -27,6 +27,8 @@ The Python Flask based backend api
 
 ### step3 test with curl
    * curl --request GET  http://0.0.0.0:8000/checkout?ids=1,2,3,1,1
+   #### Response
+    {"total_cost":value}
    
 
    
