@@ -3,6 +3,7 @@ from application.db import db
 from flask import abort,request,Blueprint
 from collections import Counter
 import json
+import os
 
 api_namespace = Blueprint('api', __name__)
 
@@ -22,17 +23,14 @@ def ordercheckout():
         if not args: query_par = request.args.get('ids').split(',')
         if args: query_par = args['ids']
         repeated_frequency = dict(Counter(query_par))
+        query_watchmodel = watchmodel.objects()
+        if len(query_watchmodel) < 1: create_data = [watchmodel(**data['watches']).save() for data['watches'] in data['watches_data']]
         total_price = 0
-        for watchid,quantity in repeated_frequency.items():
-             try:
-                query_watches = watchmodel.objects.get(watchid=watchid)
-             except:
-                create_data = [watchmodel(**data['watches']).save() for data['watches'] in data['watches_data']]
-                query_watches = watchmodel.objects.get(watchid=watchid)
+        for watchid,quantity in repeated_frequency.items():    
+             query_watches = watchmodel.objects.get(watchid=watchid)
              discount_query = query_watches.discount
              if query_watches['on_offer'] == True:
                  total_price += (int(quantity / discount_query['discount_maxquantity']) * discount_query['discount_offer']) + ((quantity % discount_query['discount_maxquantity']) * query_watches['price'])
-                
              else:
                  total_price  += quantity * query_watches['price']
                                
