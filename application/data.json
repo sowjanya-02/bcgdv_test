@@ -1,0 +1,5 @@
+{"watches_data":
+    [{"watchid" : "1", "watchname" : "Rolex", "price" : 100, "on_offer" : true, "discount" : { "discount_offer" : 200, "discount_maxquantity" : 3 }},
+{"watchid" : "2", "watchname" : "Michael Kors", "price" : 80, "on_offer" : true, "discount" : { "discount_offer" : 120, "discount_maxquantity" : 2 } },
+{"watchid" : "3", "watchname" : "Swatch", "price" : 50, "on_offer" : false, "discount" : { "discount_offer" : 0, "discount_maxquantity" : 0 } },
+{"watchid" : "4", "watchname" : "Casio", "price" : 30, "on_offer" : false, "discount" : { "discount_offer" : 0, "discount_maxquantity" : 0 } } ]}
