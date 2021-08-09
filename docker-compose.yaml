@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  backendapp:
+    build: 
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8000:8000"
+    links:
+       - "mongodb:database"
+    volumes:
+      - ./:/watchapp
+  testbackendapp:
+    build: 
+      context: .
+      dockerfile: Dockerfile.test
+    links:
+       - "mongodb:database"
+    volumes:
+      - ./:/watchapp
+  mongodb:
+    image: mongo:4.0.8
+    ports:
+      - "9000:27017"
+    container_name: mongodb
+    restart: unless-stopped
+    volumes:
+       - mongodbdata:/data/db
+
+volumes:
+  mongodbdata:
+    driver: local
