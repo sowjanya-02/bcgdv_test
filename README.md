@@ -18,6 +18,10 @@ The Python Flask based backedn api
 ### step2
  * docker-compose up -d (to run in background)
 
+### step3 test with curl
+   *curl --request GET  http://0.0.0.0:8000/checkout?ids=1,2,3,1,1
+
+
 
 
 
