@@ -7,3 +7,8 @@ The Python Flask based backedn api
   * db(initiating the db)
   * routes(Endpoint function checkout)
   * appfun(main application functions)
+
+## Microservices Setup and Configuration
+
+### Step 1.
+
