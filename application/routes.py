@@ -26,7 +26,7 @@ def ordercheckout():
         for watchid,quantity in repeated_frequency.items():
              try:
                 query_watches = watchmodel.objects.get(watchid=watchid)
-            except:
+             except:
                 create_data = [watchmodel(**data['watches']).save() for data['watches'] in data['watches_data']]
                 query_watches = watchmodel.objects.get(watchid=watchid)
              discount_query = query_watches.discount
