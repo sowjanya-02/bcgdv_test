@@ -3,14 +3,15 @@
 
 ## Project Structure
 The Python Flask based backend api
-  * models(predefining the fields in db)
-  * db(initiating the db)
-  * routes(Endpoint function checkout)
-  * appfun(main application functions)
-  * test (to automate the api with pytest)
+     * models(predefining the fields in db)
+     * db(initiating the db)
+     * routes(Endpoint function checkout)
+     * appfun(main application functions)
+     * test (to automate the api with pytest)
+     
 ## Backend Api Description
-  * /check out is single endpoint should take a list of ids and return the total cost.
-  ### APi working:
+  * /check out is single endpoint and it takes a list of ids and return the total cost.
+  ### APi constarints:
      1) check whether offer exists or not depending on query parameters of watchids
      2) In containarized application initially data has been written to db 
 
