@@ -3,7 +3,7 @@ from application.db import db
 
 class discount(db.EmbeddedDocument):
     discount_offer = db.FloatField()
-    discount_maxquantity = db.FloatField()
+    discount_maxquantity = db.IntField()
 
 class watchmodel(db.Document):
     watchid = db.StringField(unique=True)
