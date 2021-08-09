@@ -2,8 +2,12 @@ from application.models import  watchmodel
 from application.db import db
 from flask import abort,request,Blueprint
 from collections import Counter
+import json
 
 api_namespace = Blueprint('api', __name__)
+
+with open("/watchapp/application/data.json", "r") as read_file:
+      data = json.load(read_file)
 
 
 @api_namespace.route('/checkout',methods = ['GET','POST'])
@@ -20,7 +24,11 @@ def ordercheckout():
         repeated_frequency = dict(Counter(query_par))
         total_price = 0
         for watchid,quantity in repeated_frequency.items():
-             query_watches = watchmodel.objects.get(watchid=watchid)
+             try:
+                query_watches = watchmodel.objects.get(watchid=watchid)
+            except:
+                create_data = [watchmodel(**data['watches']).save() for data['watches'] in data['watches_data']]
+                query_watches = watchmodel.objects.get(watchid=watchid)
              discount_query = query_watches.discount
              if query_watches['on_offer'] == True:
                  total_price += (int(quantity / discount_query['discount_maxquantity']) * discount_query['discount_offer']) + ((quantity % discount_query['discount_maxquantity']) * query_watches['price'])
