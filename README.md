@@ -2,11 +2,12 @@
 
 
 ## Project Structure
-The Python Flask based backedn api
+The Python Flask based backend api
   * models(predefining the fields in db)
   * db(initiating the db)
   * routes(Endpoint function checkout)
   * appfun(main application functions)
+  * test (to automate the api with pytest)
 
 ## Backed Setup and Configuration with Docker
 
