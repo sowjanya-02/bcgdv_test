@@ -10,14 +10,6 @@ services:
        - "mongodb:database"
     volumes:
       - ./:/watchapp
-  testbackendapp:
-    build: 
-      context: .
-      dockerfile: Dockerfile.test
-    links:
-       - "mongodb:database"
-    volumes:
-      - ./:/watchapp
   mongodb:
     image: mongo:4.0.8
     ports:
