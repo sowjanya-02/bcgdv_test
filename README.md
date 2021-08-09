@@ -11,4 +11,13 @@ The Python Flask based backedn api
 ## Microservices Setup and Configuration
 
 ### Step 1.
+   * mkdir sample
+   * git init .
+   * git pull  https://github.com/sowjanya-02/bcgdv_test.git
+   
+### step2
+ * docker-compose up -d (to run in background)
+
+
+
 
