@@ -17,10 +17,10 @@
 ## Project Structure
 The Python Flask based backend api
    * models(predefining the fields in db for data validation)
-   * db(initiating the db for creating the collection)
-   * routes(Endpoint function checkout)
-   * appfun(main application functions to integrate flask server)
-   * test (to automate the api with pytest)
+   * db(initiating the db for creating the collection object)
+   * routes(Endpoint)
+   * appfun(Main function to integrate with flask server)
+   * test (to automate the api with unittest)
      
 ## Backend Api Description
   * /check out is single endpoint and it takes a list of ids and return the total cost.
