@@ -1,13 +1,26 @@
-# bcgdv_test
+# Backend API using Flask
+
+## Flask
+    It is microframework and doesn't have a lot of overhead, Flask is very performant. Extensions could impact performance negatively.
+    Very flexible
+    ORM used in current api is mongoengine
+    Flask documentation is comprehensive, full of examples and well structured.
+    It is super easy to deploy Flask in production 
+    High Flexibility
+    Easy to divide the code in to multiple chunks
+    Easy installation
+    Flask ORM frame works supports SQL and NOSQL
+    Data Validation
+    Built in unittest library
 
 
 ## Project Structure
 The Python Flask based backend api
-   ##### models(predefining the fields in db)
-   ##### db(initiating the db)
-   ##### routes(Endpoint function checkout)
-   ##### appfun(main application functions)
-   ##### test (to automate the api with pytest)
+   * models(predefining the fields in db for data validation)
+   * db(initiating the db for creating the collection)
+   * routes(Endpoint function checkout)
+   * appfun(main application functions to integrate flask server)
+   * test (to automate the api with pytest)
      
 ## Backend Api Description
   * /check out is single endpoint and it takes a list of ids and return the total cost.
